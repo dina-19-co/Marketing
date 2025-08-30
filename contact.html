@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أثر - اتصل بنا</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="شركة أثر للتسويق الرقمي - نقدم حلول تسويقية مبتكرة تساعد عملك على النمو والازدهار في العالم الرقمي">
+    <style>
+        /* CSS styles from your code */
+        :root { 
+            --primary: #1e40af; 
+            --primary-dark: #1e3a8a; 
+            --secondary: #64748b; 
+            --light: #f1f5f9; 
+            --dark: #1e293b; 
+            --success: #16a34a; 
+            --font-ar: 'Cairo', sans-serif; 
+            --font-en: 'Inter', sans-serif; 
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-ar); color: #334155; line-height: 1.6; direction: rtl; }
+        body.english { direction: ltr; font-family: var(--font-en); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        header { position: fixed; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); z-index: 1000; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+        .logo { font-size: 1.5rem; font-weight: 600; color: var(--primary); cursor: pointer; }
+        .logo span { color: var(--dark); }
+        .logo img { max-width: 50px; height: auto; border-radius: 50%; }
+        nav { display: flex; gap: 1.5rem; }
+        .nav-link { color: var(--secondary); text-decoration: none; font-weight: 500; padding: 0.5rem 0.75rem; position: relative; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary); }
+        .nav-link.active::after { content: ''; position: absolute; bottom: 0; right: 0; width: 100%; height: 2px; background: var(--primary); border-radius: 1px; }
+        .header-actions { display: flex; align-items: center; gap: 1rem; }
+        .language-toggle { background: none; border: none; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--secondary); font-weight: 500; }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--dark); }
+        .hero { background: linear-gradient(135deg, #e0f2fe 0%, #e0e7ff 100%); padding: 120px 0 80px; text-align: center; }
+        .badge { display: inline-block; background: #dbeafe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 9999px; font-weight: 600; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 1rem; }
+        .hero p { font-size: 1.125rem; color: var(--secondary); max-width: 600px; margin: 0 auto; }
+        .contact-section { padding: 80px 0; background: white; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .card { border: none; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .card-header { padding: 1.5rem; border-bottom: 1px solid #e2e8f0; }
+        .card-title { font-size: 1.5rem; color: var(--dark); }
+        .card-content { padding: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; color: var(--dark); font-weight: 500; }
+        input, textarea { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; transition: border-color 0.3s, box-shadow 0.3s; }
+        input:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2); }
+        textarea { resize: vertical; min-height: 150px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.3s; width: 100%; }
+        .btn:hover { background: var(--primary-dark); }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; }
+        .spinner { width: 16px; height: 16px; border: 2px solid transparent; border-top: 2px solid white; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .success-message { text-align: center; padding: 2rem 0; }
+        .success-icon { color: var(--success); font-size: 4rem; margin-bottom: 1rem; }
+        .contact-info-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-icon { width: 48px; height: 48px; background: #dbeafe; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-details h4 { color: var(--dark); margin-bottom: 0.25rem; }
+        .contact-details a, .contact-details p { color: var(--secondary); text-decoration: none; }
+        .contact-details a:hover { color: var(--primary); }
+        .feature-card { margin-bottom: 1.5rem; border: 1px solid #e2e8f0; border-radius: 12px; transition: box-shadow 0.3s; }
+        .feature-card:hover { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); }
+        .feature-content { padding: 1.5rem; display: flex; gap: 1rem; }
+        .feature-icon { color: var(--primary); flex-shrink: 0; }
+        .feature-text h4 { color: var(--dark); margin-bottom: 0.5rem; }
+        .feature-text p { color: var(--secondary); }
+        .map-section { padding: 80px 0; background: #f8fafc; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-title { font-size: 2rem; color: var(--dark); margin-bottom: 1rem; }
+        .section-subtitle { color: var(--secondary); font-size: 1.125rem; }
+        .map-placeholder { height: 384px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; border-radius: 12px; position: relative; }
+        .map-icon { color: #94a3b8; font-size: 4rem; }
+        .faq-section { padding: 80px 0; }
+        .faq-card { margin-bottom: 1rem; border: 1px solid #e2e8f0; border-radius: 12px; }
+        .faq-content { padding: 1.5rem; }
+        .faq-question { font-size: 1.125rem; color: var(--dark); margin-bottom: 0.75rem; }
+        .faq-answer { color: var(--secondary); }
+        footer { background: var(--dark); color: white; padding: 4rem 0 2rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .footer-logo { font-size: 1.5rem; margin-bottom: 1rem; }
+        .footer-logo span:first-child { color: #93c5fd; }
+        .footer-logo span:last-child { color: #cbd5e1; }
+        .footer-about { color: #cbd5e1; margin-bottom: 1.5rem; line-height: 1.7; }
+        .footer-contact { display: flex; flex-direction: column; gap: 0.75rem; }
+        .contact-line { display: flex; align-items: center; gap: 0.75rem; color: #cbd5e1; }
+        .contact-line i { color: #93c5fd; }
+        .footer-heading { font-size: 1.125rem; margin-bottom: 1.5rem; color: white; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links button { background: none; border: none; color: #cbd5e1; cursor: pointer; padding: 0; text-align: right; transition: color 0.3s; }
+        .footer-links button:hover { color: #93c5fd; }
+        .newsletter p { color: #cbd5e1; margin-bottom: 1rem; }
+        .newsletter-form { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .newsletter-input { flex: 1; padding: 0.5rem 0.75rem; background: #334155; border: 1px solid #475569; border-radius: 8px; color: white; }
+        .newsletter-input::placeholder { color: #94a3b8; }
+        .newsletter-btn { background: #2563eb; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-weight: 500; }
+        .social-links { display: flex; gap: 0.75rem; }
+        .social-link { width: 40px; height: 40px; background: #334155; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #94a3b8; transition: all 0.3s; }
+        .social-link:hover { background: #2563eb; color: white; }
+        .footer-separator { height: 1px; background: #334155; margin: 2rem 0; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+        .copyright { color: #94a3b8; }
+        .footer-legal { display: flex; gap: 1.5rem; }
+        .footer-legal button { background: none; border: none; color: #94a3b8; cursor: pointer; transition: color 0.3s; }
+        .footer-legal button:hover { color: #93c5fd; }
+        
+        /* Mobile menu styles */
+        .mobile-menu { 
+            display: none; 
+            position: fixed; 
+            top: 64px; 
+            left: 0; 
+            right: 0; 
+            background: white; 
+            padding: 1rem; 
+            border-top: 1px solid #e2e8f0; 
+            flex-direction: column; 
+            gap: 0.5rem; 
+            z-index: 999;
+        }
+        .mobile-menu.show {
+            display: flex;
+        }
+        .mobile-menu a { 
+            padding: 0.75rem 1rem; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            color: var(--dark); 
+            transition: background 0.3s; 
+        }
+        .mobile-menu a:hover, .mobile-menu a.active { 
+            background: #f1f5f9; 
+            color: var(--primary); 
+        }
+        
+        /* Map container */
+        .map-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .map-container.active {
+            display: block;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+        
+        @media (max-width: 1024px) { 
+            .footer-grid { grid-template-columns: repeat(2, 1fr); } 
+        }
+        @media (max-width: 768px) { 
+            .contact-grid { grid-template-columns: 1fr; } 
+            nav { display: none; } 
+            .mobile-menu-btn { display: block; } 
+        }
+        @media (max-width: 640px) { 
+            .footer-grid { grid-template-columns: 1fr; } 
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; } 
+            .footer-legal { flex-direction: column; gap: 0.5rem; } 
+            .hero h1 { font-size: 2rem; } 
+        }
+        
+        body.english .contact-info-item, 
+        body.english .feature-content { 
+            flex-direction: row; 
+        }
+        body:not(.english) .contact-info-item, 
+        body:not(.english) .feature-content { 
+            flex-direction: row-reverse; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo" onclick="changeSection('home')">
+                <img src="logo (3).png" alt="شعار شركتك">
+            </div>
+            
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">الرئيسية</a>
+                <a href="services.html" class="nav-link">خدماتنا</a>
+                <a href="portfolio.html" class="nav-link">أعمالنا</a>
+                 <a href="contact.html" class="nav-item">اتصل بنا</a>
+
+                <a href="blog.html" class="nav-link active">مدونتنا </a>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="language-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-globe"></i>
+                    <span data-ar="English" data-en="العربية">English</span>
+                </button>
+                
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="nav-link">الرئيسية</a>
+            <a href="services.html" class="nav-link">خدماتنا</a>
+            <a href="portfolio.html" class="nav-link">أعمالنا</a>
+            <a href="contact.html" class="nav-item">اتصل بنا</a>
+
+            <a href="blog.html" class="nav-link active">مدونتنا </a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="badge" data-ar="تواصل معنا" data-en="Get In Touch">تواصل معنا</div>
+            <h1 data-ar="لنتحدث عن مشروعك القادم" data-en="Let's Talk About Your Next Project">لنتحدث عن مشروعك القادم</h1>
+            <p data-ar="فريقنا متاح دائماً لمناقشة أفكارك واستشارتك حول كيفية تطوير عملك عبر العالم الرقمي" data-en="Our team is always available to discuss your ideas and consult you on how to develop your business through the digital world">فريقنا متاح دائماً لمناقشة أفكارك واستشارتك حول كيفية تطوير عملك عبر العالم الرقمي</p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title" data-ar="أرسل لنا رسالة" data-en="Send Us a Message">أرسل لنا رسالة</h3>
+                        </div>
+                        <div class="card-content">
+                            <form id="contact-form">
+                                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                                    <div class="form-group" style="flex: 1;">
+                                        <label for="name" data-ar="الاسم *" data-en="Name *">الاسم *</label>
+                                        <input type="text" id="name" name="name" required data-ar-placeholder="أدخل اسمك الكامل" data-en-placeholder="Enter your full name" placeholder="أدخل اسمك الكامل">
+                                    </div>
+                                    <div class="form-group" style="flex: 1;">
+                                        <label for="phone" data-ar="الهاتف" data-en="Phone">الهاتف</label>
+                                        <input type="tel" id="phone" name="phone" data-ar-placeholder="أدخل رقم هاتفك" data-en-placeholder="Enter your phone number" placeholder="أدخل رقم هاتفك">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" data-ar="البريد الإلكتروني *" data-en="Email *">البريد الإلكتروني *</label>
+                                    <input type="email" id="email" name="email" required data-ar-placeholder="أدخل بريدك الإلكتروني" data-en-placeholder="Enter your email address" placeholder="أدخل بريدك الإلكتروني">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message" data-ar="الرسالة *" data-en="Message *">الرسالة *</label>
+                                    <textarea id="message" name="message" required data-ar-placeholder="أخبرنا عن مشروعك" data-en-placeholder="Tell us about your project" placeholder="أخبرنا عن مشروعك"></textarea>
+                                </div>
+                                <button type="submit" class="btn">
+                                    <span data-ar="إرسال الرسالة" data-en="Send Message">إرسال الرسالة</span>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                            <div class="success-message" style="display: none;">
+                                <i class="fas fa-check-circle success-icon"></i>
+                                <h3 data-ar="تم إرسال رسالتك بنجاح!" data-en="Your message has been sent successfully!">تم إرسال رسالتك بنجاح!</h3>
+                                <p data-ar="سنتواصل معك قريباً" data-en="We will contact you shortly">سنتواصل معك قريباً</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div>
+                        <h3 class="section-title" style="text-align: right; margin-bottom: 1.5rem;" data-ar="معلومات التواصل" data-en="Contact Information">معلومات التواصل</h3>
+                        <div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="contact-details">
+                                    <h4 data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</h4>
+                                    <a href="mailto:info@athar.com">info@athar.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                                <div class="contact-details">
+                                    <h4 data-ar="الهاتف" data-en="Phone">الهاتف</h4>
+                                    <a href="tel:+966501234567">+966 50 123 4567</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="contact-details">
+                                    <h4 data-ar="العنوان" data-en="Address">العنوان</h4>
+                                    <p data-ar="الرياض، المملكة العربية السعودية" data-en="Riyadh, Saudi Arabia">الرياض، المملكة العربية السعودية</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                                <div class="contact-details">
+                                    <h4 data-ar="ساعات العمل" data-en="Working Hours">ساعات العمل</h4>
+                                    <p data-ar="الأحد - الخميس: 9:00 - 18:00" data-en="Sun - Thu: 9:00 AM - 6:00 PM">الأحد - الخميس: 9:00 - 18:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="section-title" style="text-align: right; margin-bottom: 1.5rem;" data-ar="لماذا تختارنا؟" data-en="Why Choose Us?">لماذا تختارنا؟</h3>
+                        <div>
+                            <div class="feature-card">
+                                <div class="feature-content">
+                                    <div class="feature-icon"><i class="fas fa-comments fa-2x"></i></div>
+                                    <div class="feature-text">
+                                        <h4 data-ar="استشارة مجانية" data-en="Free Consultation">استشارة مجانية</h4>
+                                        <p data-ar="احصل على استشارة مجانية لمدة 30 دقيقة" data-en="Get a free 30-minute consultation">احصل على استشارة مجانية لمدة 30 دقيقة</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-content">
+                                    <div class="feature-icon"><i class="fas fa-headset fa-2x"></i></div>
+                                    <div class="feature-text">
+                                        <h4 data-ar="دعم 24/7" data-en="24/7 Support">دعم 24/7</h4>
+                                        <p data-ar="دعم فني متاح طوال الوقت" data-en="Technical support available around the clock">دعم فني متاح طوال الوقت</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-content">
+                                    <div class="feature-icon"><i class="fas fa-users fa-2x"></i></div>
+                                    <div class="feature-text">
+                                        <h4 data-ar="فريق متخصص" data-en="Expert Team">فريق متخصص</h4>
+                                        <p data-ar="فريق من الخبراء في التسويق الرقمي" data-en="Team of digital marketing experts">فريق من الخبراء في التسويق الرقمي</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-ar="موقعنا" data-en="Our Location">موقعنا</h2>
+                <p class="section-subtitle" data-ar="زورنا في مكتبنا في الرياض" data-en="Visit us at our office in Riyadh">زورنا في مكتبنا في الرياض</p>
+            </div>
+            <div class="card">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marker-alt map-icon"></i>
+                    <div class="map-container" id="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36204.50006371259!2d46.67233792832015!3d24.71367401736175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2sus!4v1712345678901!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-ar="الأسئلة الشائعة" data-en="Frequently Asked Questions">الأسئلة الشائعة</h2>
+            </div>
+            <div>
+                <div class="faq-card">
+                    <div class="faq-content">
+                        <h3 class="faq-question" data-ar="كم تستغرق مدة المشروع؟" data-en="How long does a project take?">كم تستغرق مدة المشروع؟</h3>
+                        <p class="faq-answer" data-ar="تختلف مدة المشروع حسب نوع الخدمة، ولكن عادة ما تتراوح من 4-12 أسبوع" data-en="Project duration varies by service type, but typically ranges from 4-12 weeks">تختلف مدة المشروع حسب نوع الخدمة، ولكن عادة ما تتراوح من 4-12 أسبوع</p>
+                    </div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-content">
+                        <h3 class="faq-question" data-ar="هل تقدمون ضمان على النتائج؟" data-en="Do you guarantee results?">هل تقدمون ضمان على النتائج؟</h3>
+                        <p class="faq-answer" data-ar="نعم، نقدم ضمان على جودة العمل ونعمل على تحقيق الأهداف المتفق عليها" data-en="Yes, we guarantee work quality and strive to achieve agreed-upon goals">نعم، نقدم ضمان على جودة العمل ونعمل على تحقيق الأهداف المتفق عليها</p>
+                    </div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-content">
+                        <h3 class="faq-question" data-ar="ما هي أسعاركم؟" data-en="What are your prices?">ما هي أسعاركم؟</h3>
+                        <p class="faq-answer" data-ar="تختلف الأسعار حسب نوع الخدمة ونطاق المشروع. نقدم عروض أسعار مخصصة" data-en="Prices vary by service type and project scope. We provide customized quotes">تختلف الأسعار حسب نوع الخدمة ونطاق المشروع. نقدم عروض أسعار مخصصة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <span data-ar="أثر" data-en="Ather">أثر</span><span>.</span>
+                    </div>
+                    <p class="footer-about" data-ar="نحن وكالة تسويق رقمية متخصصة في تقديم حلول مبتكرة لتعزيز وجودك الرقمي وتحقيق أهدافك التجارية." data-en="We are a digital marketing agency specialized in providing innovative solutions to enhance your digital presence and achieve your business goals.">
+                        نحن وكالة تسويق رقمية متخصصة في تقديم حلول مبتكرة لتعزيز وجودك الرقمي وتحقيق أهدافك التجارية.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-line">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@athar.com</span>
+                        </div>
+                        <div class="contact-line">
+                            <i class="fas fa-phone"></i>
+                            <span>+966 50 123 4567</span>
+                        </div>
+                     
+                        <div class="contact-line">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-ar="الرياض، المملكة العربية السعودية" data-en="Riyadh, Saudi Arabia">الرياض، المملكة العربية السعودية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading" data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><button onclick="scrollToSection('home')" data-ar="الرئيسية" data-en="Home">الرئيسية</button></li>
+                        <li><button onclick="scrollToSection('services')" data-ar="الخدمات" data-en="Services">الخدمات</button></li>
+                        <li><button onclick="scrollToSection('portfolio')" data-ar="معرض الأعمال" data-en="Portfolio">معرض الأعمال</button></li>
+                        <li><button onclick="scrollToSection('contact')" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading" data-ar="الخدمات" data-en="Services">الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><button onclick="scrollToSection('services')" data-ar="تحسين محركات البحث" data-en="SEO">تحسين محركات البحث</button></li>
+                        <li><button onclick="scrollToSection('services')" data-ar="التسويق عبر وسائل التواصل" data-en="Social Media Marketing">التسويق عبر وسائل التواصل</button></li>
+                        <li><button onclick="scrollToSection('services')" data-ar="إنشاء المحتوى" data-en="Content Creation">إنشاء المحتوى</button></li>
+                        <li><button onclick="scrollToSection('services')" data-ar="إعلانات ممولة" data-en="Paid Ads">إعلانات ممولة</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading" data-ar="ابق على تواصل" data-en="Stay in Touch">ابق على تواصل</h4>
+                    <p class="footer-about" data-ar="اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والنصائح" data-en="Subscribe to our newsletter for the latest news and tips">
+                        اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والنصائح
+                    </p>
+                    <div class="newsletter">
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" data-ar-placeholder="بريدك الإلكتروني" data-en-placeholder="Your Email Address" placeholder="بريدك الإلكتروني">
+                            <button class="newsletter-btn" data-ar="اشتراك" data-en="Subscribe">اشتراك</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="footer-heading" data-ar="تابعنا" data-en="Follow Us">تابعنا</h5>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-separator"></div>
+            <div class="footer-bottom">
+                <p class="copyright" data-ar="© 2025 أثر للتسويق الرقمي. جميع الحقوق محفوظة." data-en="© 2025 Ather Digital Marketing. All rights reserved.">© 2025 أثر للتسويق الرقمي. جميع الحقوق محفوظة.</p>
+                <div class="footer-legal">
+                    <button data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</button>
+                    <button data-ar="شروط الاستخدام" data-en="Terms of Use">شروط الاستخدام</button>
+                    <button data-ar="سياسة الكوكيز" data-en="Cookie Policy">سياسة الكوكيز</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Language toggle functionality
+        function toggleLanguage() {
+            document.body.classList.toggle('english');
+            const toggleBtn = document.querySelector('.language-toggle span');
+            
+            // Toggle the text content of the button itself
+            if (document.body.classList.contains('english')) {
+                toggleBtn.textContent = 'العربية';
+            } else {
+                toggleBtn.textContent = 'English';
+            }
+            
+            // Call the main translation function
+            updateContent();
+        }
+
+        // Main function to update content based on language
+        function updateContent() {
+            const isEnglish = document.body.classList.contains('english');
+            const langAttr = isEnglish ? 'data-en' : 'data-ar';
+            const placeholderAttr = isEnglish ? 'data-en-placeholder' : 'data-ar-placeholder';
+            
+            // Select all elements with translation data attributes
+            document.querySelectorAll(`[${langAttr}]`).forEach(element => {
+                if (element.hasAttribute(placeholderAttr)) {
+                    element.placeholder = element.getAttribute(placeholderAttr);
+                } else {
+                    element.textContent = element.getAttribute(langAttr);
+                }
+            });
+        }
+        
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                this.innerHTML = '<i class="fas fa-bars"></i>';
+            } else {
+                mobileMenu.classList.add('show');
+                this.innerHTML = '<i class="fas fa-times"></i>';
+            }
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.btn');
+            const submitBtnTextSpan = submitBtn.querySelector('span');
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<div class="spinner"></div> ${document.body.classList.contains('english') ? 'Sending...' : 'جاري الإرسال'}`;
+            
+            setTimeout(function() {
+                document.getElementById('contact-form').style.display = 'none';
+                document.querySelector('.success-message').style.display = 'block';
+                
+                setTimeout(function() {
+                    document.getElementById('contact-form').reset();
+                    document.getElementById('contact-form').style.display = 'block';
+                    document.querySelector('.success-message').style.display = 'none';
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `<span>${document.body.classList.contains('english') ? 'Send Message' : 'إرسال الرسالة'}</span> <i class="fas fa-paper-plane"></i>`;
+                }, 5000);
+            }, 2000);
+        });
+        
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                window.scrollTo({
+                    top: section.offsetTop - headerHeight - 20, // Adjust for padding
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Initialize page content
+        document.addEventListener('DOMContentLoaded', function() {
+            updateContent();
+            
+            // Add click event to map placeholder to show the actual map
+            const mapPlaceholder = document.querySelector('.map-placeholder');
+            const mapContainer = document.getElementById('map-container');
+            
+            mapPlaceholder.addEventListener('click', function() {
+                this.querySelector('.map-icon').style.display = 'none';
+                mapContainer.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

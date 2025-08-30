@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أثر - التسويق الرقمي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-foreground: #ffffff;
+            --secondary: #f1f5f9;
+            --secondary-foreground: #0f172a;
+            --muted: #64748b;
+            --muted-foreground: #94a3b8;
+            --border: #e2e8f0;
+            --background: #ffffff;
+            --foreground: #0f172a;
+            --destructive: #ef4444;
+            --accent: #f8fafc;
+            --font-weight-medium: 500;
+            --ring: #3b82f6;
+            --radius: 0.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--foreground);
+            line-height: 1.6;
+            padding-top: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background-color: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .logo span:first-child {
+            color: var(--primary);
+        }
+
+        .desktop-nav {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+
+        .nav-item {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            transition: all 0.2s;
+            position: relative;
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-item:hover {
+            color: var(--primary);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 9999px;
+        }
+
+        .language-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            border-radius: var(--radius);
+        }
+
+        .language-toggle:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        .translate-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            border-radius: var(--radius);
+            margin-right: 0.5rem;
+        }
+
+        .translate-toggle:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        .mobile-menu-button {
+            display: block;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            color: var(--muted);
+            cursor: pointer;
+            border-radius: var(--radius);
+            transition: all 0.2s;
+        }
+
+        .mobile-menu-button:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-button {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border);
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.open {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .mobile-nav-item {
+            display: block;
+            width: 100%;
+            text-align: right;
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .mobile-nav-item:hover, .mobile-nav-item.active {
+            background-color: rgba(37, 99, 235, 0.08);
+            color: var(--primary);
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .card-image-container {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            z-index: 10;
+        }
+
+        .card-header {
+            padding: 1.25rem 1.25rem 0.75rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+            cursor: pointer;
+            transition: color 0.2s;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title:hover {
+            color: var(--primary);
+        }
+
+        .card-content {
+            padding: 0 1.25rem 1.25rem;
+        }
+
+        .card-summary {
+            color: var(--muted-foreground);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            outline: none;
+            border: 1px solid transparent;
+            padding: 0.6rem 1.2rem;
+        }
+
+        .button:focus-visible {
+            border-color: var(--ring);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .button-default {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .button-default:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .button-outline {
+            background-color: transparent;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .button-outline:hover {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .button-sm {
+            height: 2.25rem;
+            padding: 0 0.875rem;
+            font-size: 0.85rem;
+        }
+
+        .button-lg {
+            height: 3rem;
+            padding: 0 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .button-full {
+            width: 100%;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--foreground);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 9999px;
+        }
+
+        .section-description {
+            text-align: center;
+            color: var(--muted-foreground);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), #1e40af);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .cta-content {
+            max-width: 42rem;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-description {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: grid;
+            gap: 2rem;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-card {
+            background-color: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .sidebar-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--foreground);
+            position: relative;
+            padding-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 9999px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.6rem 0.875rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .category-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            background-color: var(--secondary);
+            transform: translateX(-5px);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: var(--secondary);
+            color: var(--muted-foreground);
+        }
+
+        .popular-posts {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .popular-post {
+            font-size: 0.95rem;
+            color: var(--muted);
+            transition: color 0.2s;
+            cursor: pointer;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            position: relative;
+            padding-right: 1rem;
+        }
+
+        .popular-post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .popular-post:hover {
+            color: var(--primary);
+        }
+
+        .popular-post::before {
+            content: '→';
+            position: absolute;
+            right: 0;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .popular-post:hover::before {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-logo span:first-child {
+            color: var(--primary);
+        }
+
+        .footer-description {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        .footer-heading {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 9999px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem;
+        }
+
+        .footer-link {
+            background: none;
+            border: none;
+            text-align: right;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 0;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+            transform: translateX(-5px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.6rem 0.875rem;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: var(--radius);
+            color: white;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .newsletter-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            background-color: #1e293b;
+            border-radius: var(--radius);
+            color: #94a3b8;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-separator {
+            height: 1px;
+            background-color: #334155;
+            margin: 3rem 0 2rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+            }
+        }
+
+        .copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .legal-link {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .legal-link:hover {
+            color: var(--primary);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal.open .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background-color: var(--background);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--foreground);
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--muted);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .modal-image {
+            width: 100%;
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        .modal-text {
+            line-height: 1.8;
+            color: var(--foreground);
+        }
+
+        .modal-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-text ul, .modal-text ol {
+            margin-bottom: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .modal-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+            background-color: var(--background);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .share-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            color: var(--muted);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .share-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .share-button.facebook:hover {
+            background-color: #3b5998;
+            color: white;
+        }
+
+        .share-button.twitter:hover {
+            background-color: #1da1f2;
+            color: white;
+        }
+
+        .share-button.linkedin:hover {
+            background-color: #0077b5;
+            color: white;
+        }
+
+        .share-button.whatsapp:hover {
+            background-color: #25d366;
+            color: white;
+        }
+
+        /* Utility Classes */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .md\:flex {
+                display: flex;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(37, 99, 235, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="header-inner">
+                <!-- Logo -->
+                <div>
+                    <a href="index.html" class="logo">
+                        <img src="logo (3).png" alt="شعار أثر">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <a href="index.html" class="nav-item" data-translate-key="nav-home">الرئيسية</a>
+                    <a href="services.html" class="nav-item" data-translate-key="nav-services">خدماتنا</a>
+                    <a href="portfolio.html" class="nav-item" data-translate-key="nav-portfolio">أعمالنا</a>
+                    <a href="contact.html" class="nav-item" data-translate-key="nav-contact">اتصل بنا</a>
+                    <a href="blog.html" class="nav-item active" data-translate-key="nav-blog">مدونتنا</a>
+                </nav>
+
+                <!-- Language Toggle & Mobile Menu -->
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button class="translate-toggle" onclick="translateContent()">
+                        <i class="fa-solid fa-language"></i>
+                        <span class="hidden md:flex" id="translate-text">English</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-menu" id="mobileMenu">
+                <nav class="mobile-nav">
+                    <a href="index.html" class="mobile-nav-item" data-translate-key="nav-home">الرئيسية</a>
+                    <a href="services.html" class="mobile-nav-item" data-translate-key="nav-services">خدماتنا</a>
+                    <a href="portfolio.html" class="mobile-nav-item" data-translate-key="nav-portfolio">أعمالنا</a>
+                    <a href="contact.html" class="mobile-nav-item" data-translate-key="nav-contact">اتصل بنا</a>
+                    <a href="blog.html" class="mobile-nav-item active" data-translate-key="nav-blog">مدونتنا</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Blog Section -->
+        <section class="blog-section">
+            <h2 class="section-title" data-translate-key="blog-title">مدونتنا</h2>
+            <p class="section-description" data-translate-key="blog-description">اكتشف أحدث الاتجاهات والاستراتيجيات في عالم التسويق الرقمي من خلال مقالاتنا المتخصصة التي يكتبها خبراء المجال</p>
+            
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <div class="card slide-up">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTRU8lMjBhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzU2NDU4NDUxfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="SEO Strategies" class="card-image">
+                        <div class="card-category">SEO</div>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title line-clamp-2" onclick="openBlogPost(1)" data-translate-key="post1-title">أفضل استراتيجيات SEO لتحسين ظهور موقعك في محركات البحث</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-summary" data-translate-key="post1-summary">اكتشف أحدث تقنيات تحسين محركات البحث التي يمكن أن تساعد موقعك في الظهور في الصفحات الأولى لنتائج البحث وجذب المزيد من الزوار.</p>
+                        <button class="button button-outline button-full" onclick="openBlogPost(1)">
+                            <span data-translate-key="post1-button">اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="card slide-up" style="animation-delay: 0.1s;">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZرديYSUyMG1hcmtldGluZ3xlbnwxfHx8fDE3NTYzODAzODl8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Social Media" class="card-image">
+                        <div class="card-category" data-translate-key="category-social">سوشال ميديا</div>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title line-clamp-2" onclick="openBlogPost(2)" data-translate-key="post2-title">كيفية بناء وجود قوي على وسائل التواصل الاجتماعي لعلامتك التجارية</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-summary" data-translate-key="post2-summary">تعلم كيفية إنشاء استراتيجية فعالة لوسائل التواصل الاجتماعي تزيد من تفاعل العملاء وبناء مجتمع حول علامتك التجارية.</p>
+                        <button class="button button-outline button-full" onclick="openBlogPost(2)">
+                            <span data-translate-key="post2-button">اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="card slide-up" style="animation-delay: 0.2s;">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1740174459699-487aec1f7bc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbmxpbmUlMjBhZHZlcnRpc2luZyUyUFBQfGVufDF8fHx8MTc1NjQ1ODQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Content Marketing" class="card-image">
+                        <div class="card-category" data-translate-key="category-ads">إعلانات</div>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title line-clamp-2" onclick="openBlogPost(3)" data-translate-key="post3-title">دليل شامل للإعلانات المدفوعة على جوجل آدس</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-summary" data-translate-key="post3-summary">تعلم كيفية إنشاء حملات إعلانية ناجحة على جوجل آدس بأقل التكاليف وأعلى معدلات التحويل. من إعداد الحساب إلى تحليل النتائج.</p>
+                        <button class="button button-outline button-full" onclick="openBlogPost(3)">
+                            <span data-translate-key="post3-button">اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Card 4 -->
+                <div class="card slide-up" style="animation-delay: 0.3s;">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1546900703-cf06143d1239?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGV2ZWxvcG1lbnQlMjBjb2Rpbmd8ZW58MXx8fHwxNzU2NDU4NDUyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Web Development" class="card-image">
+                        <div class="card-category" data-translate-key="category-dev">تطوير مواقع</div>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title line-clamp-2" onclick="openBlogPost(4)" data-translate-key="post4-title">أساسيات تطوير المواقع الإلكترونية الحديثة</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-summary" data-translate-key="post4-summary">دليل المبتدئين لتطوير المواقع الإلكترونية باستخدام أحدث التقنيات. من HTML و CSS إلى JavaScript وأطر العمل الحديثة.</p>
+                        <button class="button button-outline button-full" onclick="openBlogPost(4)">
+                            <span data-translate-key="post4-button">اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Card 5 -->
+                <div class="card slide-up" style="animation-delay: 0.4s;">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1661286178487-b8b6d0217427?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW50JTIwbWFya2V0aW5nJTIwd3JpdGluZ3xlbnwxfHx8fDE3NTYzNjA0MDl8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Content Writing" class="card-image">
+                        <div class="card-category" data-translate-key="category-content">تسويق محتوى</div>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title line-clamp-2" onclick="openBlogPost(5)" data-translate-key="post5-title">التسويق بالمحتوى: كيف تكتب محتوى يجذب العملاء</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-summary" data-translate-key="post5-summary">تعرّف على فن كتابة المحتوى التسويقي الذي يجذب القراء ويحولهم إلى عملاء. استراتيجيات مجربة لإنتاج محتوى عالي الجودة.</p>
+                        <button class="button button-outline button-full" onclick="openBlogPost(5)">
+                            <span data-translate-key="post5-button">اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Card 6 -->
+                <div class="card slide-up" style="animation-delay: 0.5s;">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwc3RyYXRlZ3l8ZW58MXx8fHwxNzU2NDExMTU0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Digital Marketing" class="card-image">
+                        <div class="card-category" data-translate-key="category-digital">تسويق رقمي</div>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title line-clamp-2" onclick="openBlogPost(6)" data-translate-key="post6-title">أحدث اتجاهات التسويق الرقمي لعام 2024</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-summary" data-translate-key="post6-summary">استكشف أحدث الاتجاهات في عالم التسويق الرقمي واكتشف كيف يمكن لشركتك الاستفادة منها لتحقيق نمو مستدام وزيادة المبيعات.</p>
+                        <button class="button button-outline button-full" onclick="openBlogPost(6)">
+                            <span data-translate-key="post6-button">اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <div class="flex space-x-reverse space-x-2">
+                    <button class="px-4 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors" data-translate-key="pagination-prev">
+                        السابق
+                    </button>
+                    <button class="px-4 py-2 bg-primary text-primary-foreground rounded-lg">1</button>
+                    <button class="px-4 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">2</button>
+                    <button class="px-4 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">3</button>
+                    <button class="px-4 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors" data-translate-key="pagination-next">
+                        التالي
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title" data-translate-key="cta-title">هل تريد استشارة تسويقية مجانية؟</h2>
+                    <p class="cta-description" data-translate-key="cta-description">احصل على استشارة مخصصة من خبرائنا لتطوير استراتيجية التسويق الرقمي الخاصة بشركتك</p>
+                    <div class="cta-buttons">
+                        <button class="button button-default button-lg" onclick="contactViaWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-translate-key="cta-whatsapp">تواصل معنا عبر واتساب</span>
+                        </button>
+                        <button class="button button-outline button-lg" onclick="requestQuote()" style="border-color: white; color: white;">
+                            <span data-translate-key="cta-quote">اطلب عرض سعر</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h3 class="sidebar-title" data-translate-key="sidebar-search">البحث في المقالات</h3>
+                <div class="search-form">
+                    <input type="text" class="search-input" data-translate-key="sidebar-search-placeholder" placeholder="ابحث عن مقال...">
+                    <button class="button button-default button-sm" data-translate-key="sidebar-search-button">بحث</button>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3 class="sidebar-title" data-translate-key="sidebar-categories">التصنيفات</h3>
+                <div class="category-list">
+                    <div class="category-item">
+                        <span>SEO</span>
+                        <span class="badge">12</span>
+                    </div>
+                    <div class="category-item">
+                        <span data-translate-key="category-social">سوشال ميديا</span>
+                        <span class="badge">8</span>
+                    </div>
+                    <div class="category-item">
+                        <span data-translate-key="category-ads">إعلانات</span>
+                        <span class="badge">15</span>
+                    </div>
+                    <div class="category-item">
+                        <span data-translate-key="category-dev">تطوير مواقع</span>
+                        <span class="badge">6</span>
+                    </div>
+                    <div class="category-item">
+                        <span data-translate-key="category-content">تسويق محتوى</span>
+                        <span class="badge">9</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3 class="sidebar-title" data-translate-key="sidebar-popular">مقالات شائعة</h3>
+                <div class="popular-posts">
+                    <div class="popular-post" onclick="openBlogPost(4)" data-translate-key="post4-title">أساسيات تطوير المواقع الإلكترونية الحديثة</div>
+                    <div class="popular-post" onclick="openBlogPost(5)" data-translate-key="post5-title">التسويق بالمحتوى: كيف تكتب محتوى يجذب العملاء</div>
+                    <div class="popular-post" onclick="openBlogPost(1)" data-translate-key="post1-title">أفضل استراتيجيات SEO لتحسين ظهور موقعك في محركات البحث</div>
+                    <div class="popular-post" onclick="openBlogPost(6)" data-translate-key="post6-title">أحدث اتجاهات التسويق الرقمي لعام 2024</div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h3 class="footer-logo">
+                            <span>أثر</span><span>.</span>
+                        </h3>
+                        <p class="footer-description" data-translate-key="footer-description">
+                            نحن وكالة تسويق رقمي متخصصة في تقديم حلول تسويقية مبتكرة تساعد عملك على النمو والازدهار في العالم الرقمي.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>info@athar.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+966 50 123 4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>الرياض، السعودية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading" data-translate-key="footer-quick-links">روابط سريعة</h4>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link" data-translate-key="nav-home">الرئيسية</a>
+                        <a href="services.html" class="footer-link" data-translate-key="nav-services">الخدمات</a>
+                        <a href="portfolio.html" class="footer-link" data-translate-key="nav-portfolio">أعمالنا</a>
+                        <a href="contact.html" class="footer-link" data-translate-key="nav-contact">اتصل بنا</a>
+                        <a href="blog.html" class="footer-link" data-translate-key="nav-blog">مدونتنا</a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="footer-heading" data-translate-key="footer-services">الخدمات</h4>
+                    <div class="footer-links">
+                        <a href="services.html#seo" class="footer-link">تحسين محركات البحث (SEO)</a>
+                        <a href="services.html#social" class="footer-link" data-translate-key="category-social">إدارة وسائل التواصل الاجتماعي</a>
+                        <a href="services.html#content" class="footer-link" data-translate-key="category-content">التسويق بالمحتوى</a>
+                        <a href="services.html#ads" class="footer-link" data-translate-key="category-ads">إعلانات ممولة</a>
+                        <a href="services.html" class="footer-link">جميع الخدمات</a>
+                    </div>
+                </div>
+
+                <!-- Newsletter & Social -->
+                <div>
+                    <h4 class="footer-heading" data-translate-key="footer-stay-connected">ابق على تواصل</h4>
+                    
+                    <p class="footer-description" data-translate-key="footer-description">
+                        اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والنصائح
+                    </p>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" data-translate-key="footer-newsletter-placeholder" placeholder="بريدك الإلكتروني">
+                            <button class="button button-default button-sm" data-translate-key="footer-subscribe">اشتراك</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 style="color: white; margin-bottom: 1rem;" data-translate-key="footer-follow">تابعنا</h5>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-separator"></div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <p class="copyright" data-translate-key="footer-copyright">
+                    © 2024 أثر للتسويق الرقمي. جميع الحقوق محفوظة.
+                </p>
+                
+                <div class="footer-legal">
+                    <a href="#" class="legal-link" data-translate-key="footer-privacy">سياسة الخصوصية</a>
+                    <a href="#" class="legal-link" data-translate-key="footer-terms">شروط الاستخدام</a>
+                    <a href="#" class="legal-link" data-translate-key="footer-cookies">سياسة الكوكيز</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Blog Post Modal -->
+    <div class="modal" id="blogModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">عنوان المقال</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- سيتم تعبئة المحتوى هنا عبر JavaScript -->
+            </div>
+            <div class="modal-footer">
+                <div class="share-buttons">
+                    <button class="share-button facebook" onclick="shareOnFacebook()">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button class="share-button twitter" onclick="shareOnTwitter()">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="share-button linkedin" onclick="shareOnLinkedIn()">
+                        <i class="fab fa-linkedin-in"></i>
+                    </button>
+                    <button class="share-button whatsapp" onclick="shareOnWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                    </button>
+                </div>
+                <button class="button button-outline" onclick="closeModal()">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let currentLanguage = 'ar';
+        let isMobileMenuOpen = false;
+        let currentArticle = null;
+        let isTranslated = false;
+
+        // DOM Elements
+        const mobileMenu = document.getElementById('mobileMenu');
+        const blogModal = document.getElementById('blogModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const translateText = document.getElementById('translate-text');
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            if (isMobileMenuOpen) {
+                mobileMenu.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (isMobileMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.mobile-menu-button')) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Arabic content
+        const arabicContent = {
+            // Navigation
+            'nav-home': 'الرئيسية',
+            'nav-services': 'خدماتنا',
+            'nav-portfolio': 'أعمالنا',
+            'nav-contact': 'اتصل بنا',
+            'nav-blog': 'مدونتنا',
+            
+            // Blog section
+            'blog-title': 'مدونتنا',
+            'blog-description': 'اكتشف أحدث الاتجاهات والاستراتيجيات في عالم التسويق الرقمي من خلال مقالاتنا المتخصصة التي يكتبها خبراء المجال',
+            
+            // Blog posts
+            'post1-title': 'أفضل استراتيجيات SEO لتحسين ظهور موقعك في محركات البحث',
+            'post1-summary': 'اكتشف أحدث تقنيات تحسين محركات البحث التي يمكن أن تساعد موقعك في الظهور في الصفحات الأولى لنتائج البحث وجذب المزيد من الزوار.',
+            'post1-button': 'اقرأ المزيد',
+            
+            'post2-title': 'كيفية بناء وجود قوي على وسائل التواصل الاجتماعي لعلامتك التجارية',
+            'post2-summary': 'تعلم كيفية إنشاء استراتيجية فعالة لوسائل التواصل الاجتماعي تزيد من تفاعل العملاء وبناء مجتمع حول علامتك التجارية.',
+            'post2-button': 'اقرأ المزيد',
+            
+            'post3-title': 'دليل شامل للإعلانات المدفوعة على جوجل آدس',
+            'post3-summary': 'تعلم كيفية إنشاء حملات إعلانية ناجحة على جوجل آدس بأقل التكاليف وأعلى معدلات التحويل. من إعداد الحساب إلى تحليل النتائج.',
+            'post3-button': 'اقرأ المزيد',
+            
+            'post4-title': 'أساسيات تطوير المواقع الإلكترونية الحديثة',
+            'post4-summary': 'دليل المبتدئين لتطوير المواقع الإلكترونية باستخدام أحدث التقنيات. من HTML و CSS إلى JavaScript وأطر العمل الحديثة.',
+            'post4-button': 'اقرأ المزيد',
+            
+            'post5-title': 'التسويق بالمحتوى: كيف تكتب محتوى يجذب العملاء',
+            'post5-summary': 'تعرّف على فن كتابة المحتوى التسويقي الذي يجذب القراء ويحولهم إلى عملاء. استراتيجيات مجربة لإنتاج محتوى عالي الجودة.',
+            'post5-button': 'اقرأ المزيد',
+            
+            'post6-title': 'أحدث اتجاهات التسويق الرقمي لعام 2024',
+            'post6-summary': 'استكشف أحدث الاتجاهات في عالم التسويق الرقمي واكتشف كيف يمكن لشركتك الاستفادة منها لتحقيق نمو مستدام وزيادة المبيعات.',
+            'post6-button': 'اقرأ المزيد',
+            
+            // Categories
+            'category-social': 'سوشال ميديا',
+            'category-ads': 'إعلانات',
+            'category-dev': 'تطوير مواقع',
+            'category-content': 'تسويق محتوى',
+            'category-digital': 'تسويق رقمي',
+            
+            // Pagination
+            'pagination-prev': 'السابق',
+            'pagination-next': 'التالي',
+            
+            // CTA section
+            'cta-title': 'هل تريد استشارة تسويقية مجانية؟',
+            'cta-description': 'احصل على استشارة مخصصة من خبرائنا لتطوير استراتيجية التسويق الرقمي الخاصة بشركتك',
+            'cta-whatsapp': 'تواصل معنا عبر واتساب',
+            'cta-quote': 'اطلب عرض سعر',
+            
+            // Sidebar
+            'sidebar-search': 'البحث في المقالات',
+            'sidebar-search-placeholder': 'ابحث عن مقال...',
+            'sidebar-search-button': 'بحث',
+            'sidebar-categories': 'التصنيفات',
+            'sidebar-popular': 'مقالات شائعة',
+            
+            // Footer
+            'footer-description': 'نحن وكالة تسويق رقمي متخصصة في تقديم حلول تسويقية مبتكرة تساعد عملك على النمو والازدهار في العالم الرقمي.',
+            'footer-quick-links': 'روابط سريعة',
+            'footer-services': 'الخدمات',
+            'footer-stay-connected': 'ابق على تواصل',
+            'footer-newsletter-placeholder': 'بريدك الإلكتروني',
+            'footer-subscribe': 'اشتراك',
+            'footer-follow': 'تابعنا',
+            'footer-copyright': '© 2024 أثر للتسويق الرقمي. جميع الحقوق محفوظة.',
+            'footer-privacy': 'سياسة الخصوصية',
+            'footer-terms': 'شروط الاستخدام',
+            'footer-cookies': 'سياسة الكوكيز'
+        };
+
+        // English content
+        const englishContent = {
+            // Navigation
+            'nav-home': 'Home',
+            'nav-services': 'Services',
+            'nav-portfolio': 'Portfolio',
+            'nav-contact': 'Contact Us',
+            'nav-blog': 'Blog',
+            
+            // Blog section
+            'blog-title': 'Our Blog',
+            'blog-description': 'Discover the latest trends and strategies in the digital marketing world through our specialized articles written by industry experts',
+            
+            // Blog posts
+            'post1-title': 'Best SEO Strategies to Improve Your Website Visibility in Search Engines',
+            'post1-summary': 'Discover the latest search engine optimization techniques that can help your website appear on the first pages of search results and attract more visitors.',
+            'post1-button': 'Read More',
+            
+            'post2-title': 'How to Build a Strong Social Media Presence for Your Brand',
+            'post2-summary': 'Learn how to create an effective social media strategy that increases customer engagement and builds a community around your brand.',
+            'post2-button': 'Read More',
+            
+            'post3-title': 'Comprehensive Guide to Paid Advertising on Google Ads',
+            'post3-summary': 'Learn how to create successful advertising campaigns on Google Ads with the lowest costs and highest conversion rates. From account setup to results analysis.',
+            'post3-button': 'Read More',
+            
+            'post4-title': 'Basics of Modern Website Development',
+            'post4-summary': 'Beginner\'s guide to website development using the latest technologies. From HTML and CSS to JavaScript and modern frameworks.',
+            'post4-button': 'Read More',
+            
+            'post5-title': 'Content Marketing: How to Write Content That Attracts Customers',
+            'post5-summary': 'Learn the art of writing marketing content that attracts readers and converts them into customers. Proven strategies for producing high-quality content.',
+            'post5-button': 'Read More',
+            
+            'post6-title': 'Latest Digital Marketing Trends for 2024',
+            'post6-summary': 'Explore the latest trends in the digital marketing world and discover how your company can benefit from them to achieve sustainable growth and increase sales.',
+            'post6-button': 'Read More',
+            
+            // Categories
+            'category-social': 'Social Media',
+            'category-ads': 'Advertising',
+            'category-dev': 'Web Development',
+            'category-content': 'Content Marketing',
+            'category-digital': 'Digital Marketing',
+            
+            // Pagination
+            'pagination-prev': 'Previous',
+            'pagination-next': 'Next',
+            
+            // CTA section
+            'cta-title': 'Do you want a free marketing consultation?',
+            'cta-description': 'Get a customized consultation from our experts to develop your company\'s digital marketing strategy',
+            'cta-whatsapp': 'Contact us via WhatsApp',
+            'cta-quote': 'Request a quote',
+            
+            // Sidebar
+            'sidebar-search': 'Search Articles',
+            'sidebar-search-placeholder': 'Search for an article...',
+            'sidebar-search-button': 'Search',
+            'sidebar-categories': 'Categories',
+            'sidebar-popular': 'Popular Articles',
+            
+            // Footer
+            'footer-description': 'We are a digital marketing agency specialized in providing innovative marketing solutions that help your business grow and thrive in the digital world.',
+            'footer-quick-links': 'Quick Links',
+            'footer-services': 'Services',
+            'footer-stay-connected': 'Stay Connected',
+            'footer-newsletter-placeholder': 'Your Email',
+            'footer-subscribe': 'Subscribe',
+            'footer-follow': 'Follow Us',
+            'footer-copyright': '© 2024 Athar Digital Marketing. All rights reserved.',
+            'footer-privacy': 'Privacy Policy',
+            'footer-terms': 'Terms of Use',
+            'footer-cookies': 'Cookie Policy'
+        };
+
+        // Translate content function
+        function translateContent() {
+            if (isTranslated) {
+                // Revert to Arabic
+                document.querySelectorAll('[data-translate-key]').forEach(element => {
+                    const key = element.getAttribute('data-translate-key');
+                    element.textContent = arabicContent[key] || element.textContent;
+                });
+                document.querySelectorAll('input[data-translate-key]').forEach(input => {
+                    const key = input.getAttribute('data-translate-key');
+                    input.placeholder = arabicContent[key] || input.placeholder;
+                });
+                translateText.textContent = 'English';
+                document.body.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+                isTranslated = false;
+            } else {
+                // Translate to English
+                document.querySelectorAll('[data-translate-key]').forEach(element => {
+                    const key = element.getAttribute('data-translate-key');
+                    element.textContent = englishContent[key] || element.textContent;
+                });
+                document.querySelectorAll('input[data-translate-key]').forEach(input => {
+                    const key = input.getAttribute('data-translate-key');
+                    input.placeholder = englishContent[key] || input.placeholder;
+                });
+                translateText.textContent = 'العربية';
+                document.body.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', 'en');
+                isTranslated = true;
+            }
+        }
+
+        // Open blog post
+        function openBlogPost(postId) {
+            // Set modal content based on postId
+            const posts = {
+                1: {
+                    title: isTranslated ? englishContent['post1-title'] : arabicContent['post1-title'],
+                    image: 'https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTRU8lMjBhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzU2NDU4NDUxfDA&ixlib=rb-4.1.0&q=80&w=1080',
+                    content: isTranslated ? 
+                    `<img src="https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTRU8lMjBhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzU2NDU4NDUxfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="SEO Strategies" class="modal-image">
+                    <div class="modal-text">
+                        <p>Discover the latest search engine optimization techniques that can help your website appear on the first pages of search results and attract more visitors.</p>
+                        <p>In this article, we will review the most important strategies you can apply to improve your website's ranking in search engines, including:</p>
+                        <ul>
+                            <li><strong>Keyword research and competitor analysis:</strong> Learn how to find the right keywords for your business and analyze your competitors to outperform them.</li>
+                            <li><strong>Content optimization and user experience:</strong> How to create high-quality content that meets your audience's needs and improves user experience.</li>
+                            <li><strong>Building high-quality backlinks:</strong> Effective strategies for building backlinks from trusted sites to improve your site's authority.</li>
+                            <li><strong>Improving site speed and mobile experience:</strong> The importance of site speed and how to improve it to enhance user experience and your site's ranking.</li>
+                            <li><strong>Improving the technical structure of the site:</strong> How to improve your site's infrastructure for search engines.</li>
+                        </ul>
+                        <p>Applying these strategies will help you increase organic visits and convert them into potential customers and sales. Remember that search engine optimization is an ongoing process that requires patience and continuity, but the results are worth the effort.</p>
+                        <p>Start today by applying these strategies and watch how your site's ranking and visitors improve over time. If you need help, do not hesitate to contact our team of experts.</p>
+                    </div>` : 
+                    `<img src="https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTRU8lMjBhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzU2NDU4NDUxfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="SEO Strategies" class="modal-image">
+                    <div class="modal-text">
+                        <p>اكتشف أحدث تقنيات تحسين محركات البحث التي يمكن أن تساعد موقعك في الظهور في الصفحات الأولى لنتائج البحث وجذب المزيد من الزوار.</p>
+                        <p>في هذا المقال، سنستعرض أهم الاستراتيجيات التي يمكنك تطبيقها لتحسين ترتيب موقعك في محركات البحث، بما في ذلك:</p>
+                        <ul>
+                            <li><strong>بحث الكلمات المفتاحية وتحليل المنافسين:</strong> تعلم كيفية العثور على الكلمات المفتاحية المناسبة لعملك وتحليل منافسيك للتفوق عليهم.</li>
+                            <li><strong>تحسين المحتوى وتجربة المستخدم:</strong> كيفية إنشاء محتوى عالي الجودة يلبي احتياجات جمهورك ويحسن تجربة المستخدم.</li>
+                            <li><strong>بناء الروابط الخلفية عالية الجودة:</strong> استراتيجيات فعالة لبناء روابط خلفية من مواقع موثوقة لتحسين سلطة موقعك.</li>
+                            <li><strong>تحسين سرعة الموقع وتجربة الجوال:</strong> أهمية سرعة الموقع وكيفية تحسينها لتحسين تجربة المستخدم وترتيب موقعك.</li>
+                            <li><strong>تحسين البنية التقنية للموقع:</strong> كيفية تحسين البنية التحتية لموقعك لمحركات البحث.</li>
+                        </ul>
+                        <p>تطبيق هذه الاستراتيجيات سيساعدك على زيادة الزيارات العضوية وتحويلها إلى عملاء محتملين ومبيعات. تذكر أن تحسين محركات البحث عملية مستمرة تتطلب الصبر والاستمرارية، لكن النتائج تستحق الجهد المبذول.</p>
+                        <p>ابدأ اليوم بتطبيق هذه الاستراتيجيات وشاهد كيف يتحسن ترتيب موقعك وزوارك مع الوقت. إذا كنت بحاجة إلى مساعدة، فلا تتردد في التواصل مع فريقنا من الخبراء.</p>
+                    </div>`
+                },
+                2: {
+                    title: isTranslated ? englishContent['post2-title'] : arabicContent['post2-title'],
+                    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNl��YJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMG1hcmtldGluZ3xlbnwxfHx8fDE3NTYzODAzODl8MA&ixlib=rb-4.1.0&q=80&w=1080',
+                    content: isTranslated ?
+                    `<img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMG1hcmtldGluZ3xlbnwxfHx8fDE3NTYzODAzODl8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Social Media Marketing" class="modal-image">
+                    <div class="modal-text">
+                        <p>Learn how to create an effective social media strategy that increases customer engagement and builds a community around your brand.</p>
+                        <p>In this article, we will cover the basic steps to building a strong presence on social media platforms:</p>
+                        <ol>
+                            <li><strong>Choose the right platforms for your target audience:</strong> You don't have to be on every platform, just focus on the platforms where your target audience is present.</li>
+                            <li><strong>Develop consistent and engaging content strategy:</strong> Create a content plan that includes different types of content that suit each platform and your audience.</li>
+                            <li><strong>Genuine interaction with followers and community building:</strong> It's not enough to just post, you must interact with your followers and build a community around your brand.</li>
+                            <li><strong>Measure and analyze performance to improve strategy:</strong> Use analytics tools to measure the performance of your posts and improve your strategy based on data.</li>
+                            <li><strong>Use paid advertising strategically:</strong> How to use social media advertising to increase reach and conversions.</li>
+                        </ol>
+                        <p>Effective presence on social media can be a critical factor in the success of your brand in the digital age. By building a strong strategy and committing to interacting with your audience, you can turn your followers into loyal customers for your brand.</p>
+                        <p>Start today by developing a social media strategy and watch how your digital presence grows and positively impacts your business.</p>
+                    </div>` :
+                    `<img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMG1hcmtldGluZ3xlbnwxfHx8fDE3NTYzODAzODl8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Social Media Marketing" class="modal-image">
+                    <div class="modal-text">
+                        <p>تعلم كيفية إنشاء استراتيجية فعالة لوسائل التواصل الاجتماعي تزيد من تفاعل العملاء وبناء مجتمع حول علامتك التجارية.</p>
+                        <p>سنتناول في هذا المقال الخطوات الأساسية لبناء وجود قوي على منصات التواصل الاجتماعي:</p>
+                        <ol>
+                            <li><strong>اختيار المنصات المناسبة لجمهورك المستهدف:</strong> ليس عليك التواجد على كل المنصات، بل ركز على المنصات التي يتواجد عليها جمهورك المستهدف.</li>
+                            <li><strong>تطوير استراتيجية محتوى متسقة وجذابة:</strong> أنشئ خطة محتوى تشمل أنواع المحتوى المختلفة التي تناسب كل منصة وجمهورك.</li>
+                            <li><strong>تفاعل حقيقي مع المتابعين وبناء المجتمع:</strong> لا تكفي النشر فقط، بل يجب أن تتفاعل مع متابعيك وتبني مجتمعًا حول علامتك التجارية.</li>
+                            <li><strong>قياس وتحليل الأداء لتحسين الاستراتيجية:</strong> استخدم أدوات التحليل لقياس أداء منشوراتك وتحسين استراتيجيتك بناءً على البيانات.</li>
+                            <li><strong>استخدم الإعلانات الممولة بشكل استراتيجي:</strong> كيفية استخدام إعلانات وسائل التواصل الاجتماعي لزيادة الوصول والتحويلات.</li>
+                        </ol>
+                        <p>الوجود الفعال على وسائل التواصل الاجتماعي يمكن أن يكون عاملاً حاسماً في نجاح علامتك التجارية في العصر الرقمي. من خلال بناء استراتيجية قوية والتزامك بالتفاعل مع جمهورك، يمكنك تحويل متابعيك إلى عملاء مخلصين لعلامتك التجارية.</p>
+                        <p>ابدأ اليوم بوضع استراتيجية لوسائل التواصل الاجتماعي وشاهد كيف ينمو وجودك الرقمي ويؤثر إيجابًا على عملك.</p>
+                    </div>`
+                }
+            };
+            
+            const post = posts[postId] || {
+                title: isTranslated ? 'Article not found' : 'مقال غير موجود',
+                content: isTranslated ? '<p>The requested article was not found or has been deleted.</p>' : '<p>المقال المطلوب غير موجود أو تم حذفه.</p>'
+            };
+            
+            currentArticle = post;
+            modalTitle.textContent = post.title;
+            modalBody.innerHTML = post.content;
+            
+            blogModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            blogModal.classList.remove('open');
+            document.body.style.overflow = 'auto';
+            
+            // Reset modal content with fade out effect
+            setTimeout(() => {
+                modalTitle.textContent = '';
+                modalBody.innerHTML = '';
+            }, 300);
+        }
+
+        // Share article functions
+        function shareOnFacebook() {
+            if (currentArticle) {
+                const url = encodeURIComponent(window.location.href);
+                const text = encodeURIComponent(currentArticle.title);
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
+            }
+        }
+
+        function shareOnTwitter() {
+            if (currentArticle) {
+                const text = encodeURIComponent(currentArticle.title);
+                const url = encodeURIComponent(window.location.href);
+                window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+            }
+        }
+
+        function shareOnLinkedIn() {
+            if (currentArticle) {
+                const url = encodeURIComponent(window.location.href);
+                const title = encodeURIComponent(currentArticle.title);
+                window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`, '_blank');
+            }
+        }
+
+        function shareOnWhatsApp() {
+            if (currentArticle) {
+                const text = encodeURIComponent(`${currentArticle.title} ${window.location.href}`);
+                window.open(`https://wa.me/?text=${text}`, '_blank');
+            }
+        }
+
+        // Contact via WhatsApp
+        function contactViaWhatsApp() {
+            const message = isTranslated ? 
+                "Hello, I would like a free marketing consultation" : 
+                "مرحباً، أريد استشارة تسويقية مجانية";
+            window.open(`https://wa.me/966501234567?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Request quote
+        function requestQuote() {
+            window.location.href = 'contact.html';
+        }
+
+        // Close modal when clicking outside
+        blogModal.addEventListener('click', function(event) {
+            if (event.target === blogModal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && blogModal.classList.contains('open')) {
+                closeModal();
+            }
+        });
+
+        // Add animation to elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.card, .sidebar-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('fade-in');
+                }
+            });
+        }
+
+        // Run animation on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        // Initial check
+        animateOnScroll();
+
+
+        
+    </script>
+</body>
+</html>

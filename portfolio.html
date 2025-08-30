@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الأعمال - أثر</title>
+    <meta name="description" content="شركة أثر للتسويق الرقمي - نقدم حلول تسويقية مبتكرة تساعد عملك على النمو والازدهار في العالم الرقمي">
+    
+    <!-- تحميل الخطوط والموارد بشكل غير متزامن -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- تحميل CSS بشكل غير متزامن -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Favicon مبسط -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌟</text></svg>">
+    
+    <style>
+        /* CSS مضغوط ومحسن */
+        :root {
+            --blue-50: #eff6ff; --blue-100: #dbeafe; --blue-500: #3b82f6; --blue-600: #2563eb; 
+            --blue-800: #1e40af; --purple-500: #a855f7; --green-500: #22c55e; --green-600: #16a34a;
+            --red-500: #ef4444; --orange-500: #f97316; --indigo-500: #6366f1; --slate-50: #f8fafc;
+            --slate-100: #f1f5f9; --slate-300: #cbd5e1; --slate-600: #475569; --slate-700: #334155;
+            --slate-900: #0f172a; --white: #ffffff; --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1); --radius: 0.75rem;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; color: var(--slate-900); background: var(--white); direction: rtl; }
+        body[dir="ltr"] { direction: ltr; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .pt-16 { padding-top: 4rem; }
+        .py-20 { padding: 5rem 0; }
+        .py-16 { padding: 4rem 0; }
+        .mb-16 { margin-bottom: 4rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        
+        .text-center { text-align: center; }
+        .bg-gradient-to-br { background: linear-gradient(to bottom right, var(--blue-50), #e0e7ff); }
+        .bg-white { background: var(--white); }
+        .bg-slate-900 { background: var(--slate-900); }
+        .bg-slate-50 { background: var(--slate-50); }
+        
+        .grid { display: grid; }
+        .md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .lg-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .lg-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        .gap-8 { gap: 2rem; }
+        .gap-12 { gap: 3rem; }
+        .gap-6 { gap: 1.5rem; }
+        
+        .space-y-8 > * + * { margin-top: 2rem; }
+        .space-y-3 > * + * { margin-top: 0.75rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .items-start { align-items: flex-start; }
+        .justify-center { justify-content: center; }
+        .flex-shrink-0 { flex-shrink: 0; }
+        .flex-wrap { flex-wrap: wrap; }
+        
+        .w-full { width: 100%; }
+        .w-16 { width: 4rem; }
+        .w-12 { width: 3rem; }
+        .h-16 { height: 4rem; }
+        .h-12 { height: 3rem; }
+        .h-80 { height: 20rem; }
+        .h-48 { height: 12rem; }
+        .h-96 { height: 24rem; }
+        
+        .rounded-2xl { border-radius: var(--radius); }
+        .rounded-xl { border-radius: 0.75rem; }
+        .rounded-full { border-radius: 9999px; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-md { border-radius: 0.375rem; }
+        
+        .border-0 { border: none; }
+        .border { border-width: 1px; }
+        .border-slate-300 { border-color: var(--slate-300); }
+        
+        .shadow-lg { box-shadow: var(--shadow-lg); }
+        .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+        
+        .transition-all { transition: all 0.3s ease; }
+        .transition-transform { transition: transform 0.3s ease; }
+        .duration-300 { transition-duration: 0.3s; }
+        .duration-500 { transition-duration: 0.5s; }
+        
+        .hover-translate-y-2:hover { transform: translateY(-0.5rem); }
+        .hover-scale-110:hover { transform: scale(1.1); }
+        
+        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .text-xs { font-size: 0.75rem; line-height: 1rem; }
+        
+        .text-slate-900 { color: var(--slate-900); }
+        .text-slate-600 { color: var(--slate-600); }
+        .text-slate-500 { color: #64748b; }
+        .text-slate-300 { color: var(--slate-300); }
+        .text-white { color: var(--white); }
+        .text-blue-800 { color: var(--blue-800); }
+        .text-blue-100 { color: var(--blue-100); }
+        
+        .leading-relaxed { line-height: 1.625; }
+        
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .px-8 { padding-left: 2rem; padding-right: 2rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+        .pt-6 { padding-top: 1.5rem; }
+        .pb-4 { padding-bottom: 1rem; }
+        .pb-6 { padding-bottom: 1.5rem; }
+        
+        .object-cover { object-fit: cover; }
+        
+        /* Badge */
+        .badge {
+            display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 9999px;
+            font-size: 0.875rem; font-weight: 600; background: var(--blue-100); color: var(--blue-800);
+        }
+        
+        /* Card */
+        .card { background: var(--white); border-radius: var(--radius); overflow: hidden; transition: all 0.3s ease; }
+        
+        /* Header */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; background: var(--white); box-shadow: var(--shadow);
+            z-index: 1000; padding: 1rem 0;
+        }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { cursor: pointer; }
+        .logo img { height: 40px; }
+        .desktop-nav { display: flex; gap: 2rem; }
+        .nav-item {
+            text-decoration: none; color: var(--slate-700); font-weight: 500; transition: color 0.2s ease;
+        }
+        .nav-item:hover, .nav-item.active { color: var(--blue-600); }
+        
+        .btn {
+            display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 0.375rem;
+            font-weight: 500; cursor: pointer; transition: all 0.2s ease; border: 1px solid transparent;
+            background: transparent;
+        }
+        .btn-ghost { background: transparent; border-color: transparent; }
+        .btn-sm { padding: 0.25rem 0.75rem; font-size: 0.875rem; }
+        .btn-default { background: var(--slate-100); color: var(--slate-900); }
+        .btn-default:hover { background: var(--slate-200); }
+        
+        .mobile-menu-btn { display: none; }
+        .mobile-menu { display: none; margin-top: 1rem; }
+        .mobile-nav { display: flex; flex-direction: column; gap: 0.5rem; }
+        .mobile-nav-item {
+            padding: 0.75rem 1rem; border-radius: 0.375rem; cursor: pointer; transition: background 0.2s ease;
+        }
+        .mobile-nav-item:hover, .mobile-nav-item.active { background: var(--slate-100); }
+        
+        /* Footer */
+        footer { background: var(--slate-900); color: var(--slate-300); padding: 3rem 0; }
+        .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .footer-heading { font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: var(--white); }
+        .footer-contact { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+        .footer-links { list-style: none; }
+        .footer-link { margin-bottom: 0.5rem; }
+        .footer-link button {
+            background: none; border: none; color: var(--slate-300); cursor: pointer; padding: 0; text-align: right;
+        }
+        .footer-link button:hover { color: #93c5fd; }
+        .newsletter-input {
+            background: var(--slate-800); border: 1px solid var(--slate-700); border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem; color: var(--white); width: 100%;
+        }
+        .footer-social { display: flex; gap: 0.75rem; }
+        .social-icon {
+            display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem;
+            border-radius: 9999px; background: var(--slate-800); color: var(--slate-300); transition: all 0.2s ease;
+        }
+        .social-icon:hover { background: var(--blue-600); color: var(--white); }
+        .footer-separator { height: 1px; background: var(--slate-700); margin: 2rem 0; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom-links { display: flex; gap: 1.5rem; }
+        .footer-bottom-links button {
+            background: none; border: none; color: var(--slate-400); cursor: pointer; font-size: 0.875rem;
+        }
+        .footer-bottom-links button:hover { color: #93c5fd; }
+        
+        /* Lazy loading للصور */
+        .lazy-image {
+            opacity: 0; transition: opacity 0.3s; width: 100%; height: 100%;
+        }
+        .lazy-image.loaded { opacity: 1; }
+        .img-placeholder {
+            background: #f1f5f9; position: relative; overflow: hidden;
+        }
+        .img-placeholder::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%);
+            background-size: 200% 100%; animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* تأثيرات الصور */
+        .image-container { position: relative; overflow: hidden; }
+        .image-container img { transition: transform 0.5s ease; }
+        .image-container:hover img { transform: scale(1.1); }
+        .image-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .image-container:hover .image-overlay { opacity: 1; }
+        
+        /* تحسينات للجوال */
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .mobile-menu.active { display: block; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .lg-grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+            .lg-grid-cols-2 { grid-template-columns: 1fr; }
+            .md-grid-cols-2 { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 640px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-bottom-links { flex-wrap: wrap; justify-content: center; }
+            .lg-grid-cols-4 { grid-template-columns: 1fr; }
+            .text-4xl { font-size: 1.875rem; }
+            .text-3xl { font-size: 1.5rem; }
+        }
+        
+        /* تحسينات للأداء */
+        .visually-hidden {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+        }
+        
+        /* إصلاح اتجاه النص للغة الإنجليزية */
+        [dir="ltr"] .rtl-space-x-reverse { direction: ltr; }
+    </style>
+    
+    <!-- تحميل الخطوط بشكل غير متزامن -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+</head>
+<body dir="rtl">
+
+    <!-- الهيدر -->
+    <header>
+        <div class="header-container">
+            <div class="header-inner">
+                <!-- اللوجو -->
+                <div class="logo" onclick="changeSection('home')">
+                    <img src="logo (3).png" alt="شعار شركتك" width="40" height="40">
+                </div>
+
+                <!-- تنقل سطح المكتب -->
+                <nav class="desktop-nav">
+                    <a href="index.html" class="nav-item">الرئيسية</a>
+                    <a href="services.html" class="nav-item">خدماتنا</a>
+                    <a href="portfolio.html" class="nav-item active">أعمالنا</a>
+                    <a href="contact.html" class="nav-item">اتصل بنا</a>
+                    <a href="blog.html" class="nav-item">مدونتنا </a>
+                </nav>
+                
+                <!-- زر تبديل اللغة وقائمة الجوال -->
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <!-- زر اللغة -->
+                    <button class="btn btn-ghost btn-sm" onclick="toggleLanguage()">
+                        <i class="fas fa-globe"></i>
+                        <span style="margin-right: 8px;" id="language-text">English</span>
+                    </button>
+
+                    <!-- زر قائمة الجوال -->
+                    <button class="mobile-menu-btn btn btn-ghost btn-sm" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- قائمة الجوال -->
+            <div class="mobile-menu" id="mobile-menu">
+                <nav class="mobile-nav">
+                    <a href="index.html" class="mobile-nav-item">الرئيسية</a>
+                    <a href="services.html" class="mobile-nav-item">خدماتنا</a>
+                    <a href="portfolio.html" class="mobile-nav-item active">معرض الأعمال</a>
+                    <a href="contact.html" class="mobile-nav-item">اتصل بنا</a>
+                    <a href="blog.html" class="mobile-nav-item">مدونتنا </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="pt-16">
+        <!-- البانر الرئيسي -->
+        <section class="py-20 bg-gradient-to-br">
+            <div class="container">
+                <div class="text-center mb-16">
+                    <span class="badge mb-6" data-translate="successStories">قصص نجاح عملائنا</span>
+                    <h1 class="text-4xl text-slate-900 mb-6" data-translate="portfolioTitle">استكشف معرض أعمالنا</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto" data-translate="portfolioSubtitle">نحن لا نبيع الخدمات، بل نصنع قصص نجاح حقيقية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- المشاريع الرئيسية -->
+        <section class="py-20 bg-white">
+            <div class="container">
+                <div class="space-y-20">
+
+                    <!-- المشروع الأول -->
+                    <div class="grid lg-grid-cols-2 gap-12 items-center">
+                        <div class="image-container rounded-xl shadow-2xl">
+                            <img 
+                                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                alt="مشروع تجارة إلكترونية" 
+                                class="w-full h-80 object-cover lazy-image" 
+                                loading="lazy"
+                                width="800"
+                                height="600"
+                            >
+                            <div class="image-overlay"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="badge" data-translate="ecommerce">التجارة الإلكترونية</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-800">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-2xl text-slate-900" data-translate="ecommerceProject">مشروع متجر إلكتروني</h3>
+                                        <p class="text-slate-600" data-translate="ecommerceDesc">نقدم مجموعة واسعة من خدمات التسويق الرقمي لمساعدتك على النمو والازدهار في السوق</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="text-center p-4 bg-slate-50 rounded-lg">
+                                        <div class="text-2xl text-blue-800 mb-1">300%</div>
+                                        <div class="text-sm text-slate-600" data-translate="salesIncrease">زيادة المبيعات</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-slate-50 rounded-lg">
+                                        <div class="text-2xl text-blue-800 mb-1">15%</div>
+                                        <div class="text-sm text-slate-600" data-translate="conversionRate">معدل التحويل</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-slate-50 rounded-lg">
+                                        <div class="text-2xl text-blue-800 mb-1">+250%</div>
+                                        <div class="text-sm text-slate-600" data-translate="websiteVisits">زيارات الموقع</div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="badge text-xs" data-translate="seo">تحسين محركات البحث</span>
+                                    <span class="badge text-xs" data-translate="paidAds">إعلانات مدفوعة</span>
+                                    <span class="badge text-xs" data-translate="socialMedia">وسائل التواصل</span>
+                                </div>
+                                <a href="#" class="btn btn-default" data-translate="viewProject">
+                                    مشاهدة المشروع
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المشروع الثاني -->
+                    <div class="grid lg-grid-cols-2 gap-12 items-center">
+                        <div class="image-container rounded-xl shadow-2xl">
+                            <img 
+                                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                alt="مشروع مطعم" 
+                                class="w-full h-80 object-cover lazy-image" 
+                                loading="lazy"
+                                width="800"
+                                height="600"
+                            >
+                            <div class="image-overlay"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="badge" data-translate="hospitality">المطاعم والضيافة</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-800">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-2xl text-slate-900" data-translate="restaurantProject">مشروع مطعم</h3>
+                                        <p class="text-slate-600" data-translate="restaurantDesc">نقدم مجموعة واسعة من خدمات التسويق الرقمي لمساعدتك على النمو والازدهار في السوق</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="text-center p-4 bg-slate-50 rounded-lg">
+                                        <div class="text-2xl text-blue-800 mb-1">+3000%</div>
+                                        <div class="text-sm text-slate-600" data-translate="followerGrowth">نمو المتابعين</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-slate-50 rounded-lg">
+                                        <div class="text-2xl text-blue-800 mb-1">12%</div>
+                                        <div class="text-sm text-slate-600" data-translate="engagement">التفاعل</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-slate-50 rounded-lg">
+                                        <div class="text-2xl text-blue-800 mb-1">+180%</div>
+                                        <div class="text-sm text-slate-600" data-translate="newOrders">الطلبات الجديدة</div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="badge text-xs" data-translate="socialManagement">إدارة وسائل التواصل</span>
+                                    <span class="badge text-xs" data-translate="contentCreation">إنشاء المحتوى</span>
+                                    <span class="badge text-xs" data-translate="influencerMarketing">التسويق المؤثر</span>
+                                </div>
+                                <a href="#" class="btn btn-default" data-translate="viewProject">
+                                    مشاهدة المشروع
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- مشاريع إضافية -->
+        <section class="py-20 bg-slate-50">
+            <div class="container">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl text-slate-900 mb-4" data-translate="moreWorks">المزيد من أعمالنا</h2>
+                    <p class="text-lg text-slate-600" data-translate="moreWorksDesc">مجموعة متنوعة من المشاريع الناجحة في مختلف القطاعات</p>
+                </div>
+
+                <div class="grid lg-grid-cols-4 gap-6">
+                    <!-- مشروع 1 -->
+                    <div class="card border-0 shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover-translate-y-2">
+                        <div class="image-container">
+                            <img 
+                                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                alt="شركة عقارات" 
+                                class="w-full h-48 object-cover lazy-image" 
+                                loading="lazy"
+                                width="400"
+                                height="300"
+                            >
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg text-slate-900 mb-2" data-translate="realEstate">شركة عقارات</h3>
+                            <p class="text-slate-600 text-sm" data-translate="realEstateDesc">زيادة الاستفسارات بنسبة 400%</p>
+                        </div>
+                    </div>
+                    
+                    <!-- مشروع 2 -->
+                    <div class="card border-0 shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover-translate-y-2">
+                        <div class="image-container">
+                            <img 
+                                src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                alt="عيادة طبية" 
+                                class="w-full h-48 object-cover lazy-image" 
+                                loading="lazy"
+                                width="400"
+                                height="300"
+                            >
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg text-slate-900 mb-2" data-translate="clinic">عيادة طبية</h3>
+                            <p class="text-slate-600 text-sm" data-translate="clinicDesc">نمو المرضى الجدد بنسبة 200%</p>
+                        </div>
+                    </div>
+                    
+                    <!-- مشروع 3 -->
+                    <div class="card border-0 shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover-translate-y-2">
+                        <div class="image-container">
+                            <img 
+                                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                alt="مركز تدريب" 
+                                class="w-full h-48 object-cover lazy-image" 
+                                loading="lazy"
+                                width="400"
+                                height="300"
+                            >
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg text-slate-900 mb-2" data-translate="training">مركز تدريب</h3>
+                            <p class="text-slate-600 text-sm" data-translate="trainingDesc">زيادة التسجيلات بنسبة 350%</p>
+                        </div>
+                    </div>
+
+                    <!-- مشروع 4 -->
+                    <div class="card border-0 shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover-translate-y-2">
+                        <div class="image-container">
+                            <img 
+                                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                alt="متجر أزياء" 
+                                class="w-full h-48 object-cover lazy-image" 
+                                loading="lazy"
+                                width="400"
+                                height="300"
+                            >
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg text-slate-900 mb-2" data-translate="fashion">متجر أزياء</h3>
+                            <p class="text-slate-600 text-sm" data-translate="fashionDesc">نمو المبيعات الرقمية بنسبة 280%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- testimonials -->
+        <section class="py-20 bg-white">
+            <div class="container">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl text-slate-900 mb-4" data-translate="testimonials">ماذا يقول عملاؤنا</h2>
+                </div>
+
+                <div class="grid md-grid-cols-3 gap-8">
+                    <div class="card shadow-lg rounded-xl p-8">
+                        <div class="text-4xl text-blue-800 mb-4">"</div>
+                        <p class="text-slate-600 mb-6 leading-relaxed" data-translate="testimonial1">فريق أثر حول عملنا بالكامل. زادت مبيعاتنا بشكل لا يصدق!</p>
+                        <div>
+                            <p class="text-slate-900">أحمد محمد</p>
+                            <p class="text-sm text-slate-500" data-translate="position1">مدير متجر إلكتروني</p>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-lg rounded-xl p-8">
+                        <div class="text-4xl text-blue-800 mb-4">"</div>
+                        <p class="text-slate-600 mb-6 leading-relaxed" data-translate="testimonial2">خدمة احترافية ونتائج تفوق التوقعات. أنصح بهم بشدة</p>
+                        <div>
+                            <p class="text-slate-900">سارة أحمد</p>
+                            <p class="text-sm text-slate-500" data-translate="position2">مالكة مطعم</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card shadow-lg rounded-xl p-8">
+                        <div class="text-4xl text-blue-800 mb-4">"</div>
+                        <p class="text-slate-600 mb-6 leading-relaxed" data-translate="testimonial3">شراكة ممتازة ونتائج ملموسة في وقت قياسي</p>
+                        <div>
+                            <p class="text-slate-900">محمد عبدالله</p>
+                            <p class="text-sm text-slate-500" data-translate="position3">مؤسس شركة تقنية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-20 bg-blue-800">
+            <div class="container text-center">
+                <h2 class="text-3xl text-white mb-6" data-translate="readyToStart">هل أنت مستعد لتكون قصة النجاح التالية؟</h2>
+                <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto" data-translate="ctaDescription">انضم إلى عملائنا الناجحين واحصل على نتائج مذهلة لعملك</p>
+                <a href="contact.html" class="btn bg-white text-blue-800 hover:bg-blue-50 text-lg px-8 py-3 rounded-md" data-translate="startProject">
+                    ابدأ مشروعك معنا
+                    <i class="fas fa-trending-up mr-2"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- معلومات الشركة -->
+                <div>
+                    <h3 class="footer-heading">
+                        <span style="color: #60a5fa;">أثر</span>
+                        <span style="color: #94a3b8;">.</span>
+                    </h3>
+                    <p class="text-md mb-6" style="color: #cbd5e1;" data-translate="footerAboutText">
+                        نقدم حلول تسويق رقمي مبتكرة تساعد عملك على النمو والازدهار في العالم الرقمي.
+                    </p>
+                    
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@athr-marketing.com</span>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-phone"></i>
+                        <span>+966 50 123 4567</span>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-translate="companyLocation">الرياض، المملكة العربية السعودية</span>
+                    </div>
+                </div>
+
+                <!-- روابط سريعة -->
+                <div>
+                    <h4 class="footer-heading" data-translate="quickLinks">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><button onclick="location.href='index.html'" data-translate="home">الرئيسية</button></li>
+                        <li class="footer-link"><button onclick="location.href='services.html'" data-translate="services">الخدمات</button></li>
+                        <li class="footer-link"><button onclick="location.href='portfolio.html'" data-translate="portfolio">معرض الأعمال</button></li>
+                        <li class="footer-link"><button onclick="location.href='contact.html'" data-translate="contact">اتصل بنا</button></li>
+                    </ul>
+                </div>
+
+                <!-- الخدمات -->
+                <div>
+                    <h4 class="footer-heading" data-translate="services">الخدمات</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><button onclick="location.href='services.html'" data-translate="seoTitle">تحسين محركات البحث</button></li>
+                        <li class="footer-link"><button onclick="location.href='services.html'" data-translate="socialTitle">التسويق عبر وسائل التواصل</button></li>
+                        <li class="footer-link"><button onclick="location.href='services.html'" data-translate="contentTitle">إنشاء المحتوى</button></li>
+                        <li class="footer-link"><button onclick="location.href='services.html'" data-translate="adsTitle">إعلانات ممولة</button></li>
+                    </ul>
+                </div>
+
+                <!-- النشرة البريدية -->
+                <div>
+                    <h4 class="footer-heading" data-translate="stayConnected">ابق على تواصل</h4>
+                    <p class="text-md mb-6" style="color: #cbd5e1;" data-translate="newsletterText">
+                        اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والنصائح
+                    </p>
+
+                    <div class="mb-6">
+                        <div style="display: flex; gap: 8px;">
+                            <input type="email" id="newsletter-email" class="newsletter-input" placeholder="بريدك الإلكتروني" data-translate="emailPlaceholder">
+                            <button class="btn btn-default btn-sm" style="white-space: nowrap;" data-translate="subscribe">اشتراك</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="footer-heading" data-translate="followUs">تابعنا</h5>
+                        <div class="footer-social">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-separator"></div>
+
+            <!-- القسم السفلي -->
+            <div class="footer-bottom">
+                <p data-translate="copyright">© 2025 Dina Digital Marketing. جميع الحقوق محفوظة.</p>
+                
+                <div class="footer-bottom-links">
+                    <button data-translate="privacyPolicy">سياسة الخصوصية</button>
+                    <button data-translate="termsOfService">شروط الاستخدام</button>
+                    <button data-translate="cookiePolicy">سياسة الكوكيز</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript المحسن -->
+    <script>
+        // بيانات الترجمة الكاملة
+        const translations = {
+            ar: {
+                // Navigation
+                home: 'الرئيسية',
+                services: 'خدماتنا',
+                portfolio: 'معرض الأعمال',
+                contact: 'اتصل بنا',
+                Blob: 'مدونتنا ',
+
+                // Hero Section
+                successStories: 'قصص نجاح عملائنا',
+                portfolioTitle: 'استكشف معرض أعمالنا',
+                portfolioSubtitle: 'نحن لا نبيع الخدمات، بل نصنع قصص نجاح حقيقية.',
+
+                // Project Details
+                ecommerce: 'التجارة الإلكترونية',
+                ecommerceProject: 'مشروع متجر إلكتروني',
+                ecommerceDesc: 'نقدم مجموعة واسعة من خدمات التسويق الرقمي لمساعدتك على النمو والازدهار في السوق',
+                salesIncrease: 'زيادة المبيعات',
+                conversionRate: 'معدل التحويل',
+                websiteVisits: 'زيارات الموقع',
+                seo: 'تحسين محركات البحث',
+                paidAds: 'إعلانات مدفوعة',
+                socialMedia: 'وسائل التواصل',
+                viewProject: 'مشاهدة المشروع',
+
+                hospitality: 'المطاعم والضيافة',
+                restaurantProject: 'مشروع مطعم',
+                restaurantDesc: 'نقدم مجموعة واسعة من خدمات التسويق الرقمي لمساعدتك على النمو والازدهار في السوق',
+                followerGrowth: 'نمو المتابعين',
+                engagement: 'التفاعل',
+                newOrders: 'الطلبات الجديدة',
+                socialManagement: 'إدارة وسائل التواصل',
+                contentCreation: 'إنشاء المحتوى',
+                influencerMarketing: 'التسويق المؤثر',
+
+                // More Works
+                moreWorks: 'المزيد من أعمالنا',
+                moreWorksDesc: 'مجموعة متنوعة من المشاريع الناجحة في مختلف القطاعات',
+                realEstate: 'شركة عقارات',
+                realEstateDesc: 'زيادة الاستفسارات بنسبة 400%',
+                clinic: 'عيادة طبية',
+                clinicDesc: 'نمو المرضى الجدد بنسبة 200%',
+                training: 'مركز تدريب',
+                trainingDesc: 'زيادة التسجيلات بنسبة 350%',
+                fashion: 'متجر أزياء',
+                fashionDesc: 'نمو المبيعات الرقمية بنسبة 280%',
+
+                // Testimonials
+                testimonials: 'ماذا يقول عملاؤنا',
+                testimonial1: 'فريق أثر حول عملنا بالكامل. زادت مبيعاتنا بشكل لا يصدق!',
+                testimonial2: 'خدمة احترافية ونتائج تفوق التوقعات. أنصح بهم بشدة',
+                testimonial3: 'شراكة ممتازة ونتائج ملموسة في وقت قياسي',
+                position1: 'مدير متجر إلكتروني',
+                position2: 'مالكة مطعم',
+                position3: 'مؤسس شركة تقنية',
+
+                // CTA
+                readyToStart: 'هل أنت مستعد لتكون قصة النجاح التالية؟',
+                ctaDescription: 'انضم إلى عملائنا الناجحين واحصل على نتائج مذهلة لعملك',
+                startProject: 'ابدأ مشروعك معنا',
+
+                // Footer
+                footerAboutText: 'نقدم حلول تسويق رقمي مبتكرة تساعد عملك على النمو والازدهار في العالم الرقمي.',
+                companyLocation: 'الرياض، السعودية',
+                quickLinks: 'روابط سريعة',
+                stayConnected: 'ابق على تواصل',
+                newsletterText: 'اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والنصائح',
+                followUs: 'تابعنا',
+                copyright: '© 2024 أثر للتسويق الرقمي. جميع الحقوق محفوظة.',
+                privacyPolicy: 'سياسة الخصوصية',
+                termsOfService: 'شروط الاستخدام',
+                cookiePolicy: 'سياسة الكوكيز',
+                subscribe: 'اشتراك',
+                emailPlaceholder: 'بريدك الإلكتروني',
+
+                // Services
+                seoTitle: 'تحسين محركات البحث',
+                socialTitle: 'التسويق عبر وسائل التواصل',
+                contentTitle: 'إنشاء المحتوى',
+                adsTitle: 'إعلانات ممولة'
+            },
+            en: {
+                // Navigation
+                home: 'Home',
+                services: 'Services',
+                portfolio: 'Portfolio',
+                contact: 'Contact Us',
+
+                // Hero Section
+                successStories: 'Our Success Stories',
+                portfolioTitle: 'Explore Our Portfolio',
+                portfolioSubtitle: 'We don\'t sell services, we create real success stories.',
+
+                // Project Details
+                ecommerce: 'E-Commerce',
+                ecommerceProject: 'E-Commerce Store Project',
+                ecommerceDesc: 'We offer a wide range of digital marketing services to help you grow and thrive in the market',
+                salesIncrease: 'Sales Increase',
+                conversionRate: 'Conversion Rate',
+                websiteVisits: 'Website Visits',
+                seo: 'SEO',
+                paidAds: 'Paid Ads',
+                socialMedia: 'Social Media',
+                viewProject: 'View Project',
+
+                hospitality: 'Hospitality',
+                restaurantProject: 'Restaurant Project',
+                restaurantDesc: 'We offer a wide range of digital marketing services to help you grow and thrive in the market',
+                followerGrowth: 'Follower Growth',
+                engagement: 'Engagement',
+                newOrders: 'New Orders',
+                socialManagement: 'Social Media Management',
+                contentCreation: 'Content Creation',
+                influencerMarketing: 'Influencer Marketing',
+
+                // More Works
+                moreWorks: 'More of Our Work',
+                moreWorksDesc: 'A variety of successful projects across different sectors',
+                realEstate: 'Real Estate Company',
+                realEstateDesc: '400% increase in inquiries',
+                clinic: 'Medical Clinic',
+                clinicDesc: '200% growth in new patients',
+                training: 'Training Center',
+                trainingDesc: '350% increase in registrations',
+                fashion: 'Fashion Store',
+                fashionDesc: '280% growth in digital sales',
+
+                // Testimonials
+                testimonials: 'What Our Clients Say',
+                testimonial1: 'The Athr team completely transformed our business. Our sales increased incredibly!',
+                testimonial2: 'Professional service and results that exceed expectations. I highly recommend them',
+                testimonial3: 'Excellent partnership and tangible results in record time',
+                position1: 'E-Commerce Manager',
+                position2: 'Restaurant Owner',
+                position3: 'Tech Company Founder',
+
+                // CTA
+                readyToStart: 'Ready to Be the Next Success Story?',
+                ctaDescription: 'Join our successful clients and get amazing results for your business',
+                startProject: 'Start Your Project With Us',
+
+                // Footer
+                footerAboutText: 'We provide innovative digital marketing solutions that help your business grow and thrive in the digital world.',
+                companyLocation: 'Riyadh, Saudi Arabia',
+                quickLinks: 'Quick Links',
+                stayConnected: 'Stay Connected',
+                newsletterText: 'Subscribe to our newsletter for the latest news and tips',
+                followUs: 'Follow Us',
+                copyright: '© 2024 Athr Digital Marketing. All Rights Reserved.',
+                privacyPolicy: 'Privacy Policy',
+                termsOfService: 'Terms of Service',
+                cookiePolicy: 'Cookie Policy',
+                subscribe: 'Subscribe',
+                emailPlaceholder: 'Your Email',
+
+                // Services
+                seoTitle: 'Search Engine Optimization',
+                socialTitle: 'Social Media Marketing',
+                contentTitle: 'Content Creation',
+                adsTitle: 'Paid Advertising'
+            }
+        };
+
+        // حالة التطبيق
+        let currentLanguage = 'ar';
+
+        // وظيفة الترجمة
+        function t(key) {
+            return translations[currentLanguage][key] || key;
+        }
+
+        // تطبيق الترجمة على جميع العناصر
+        function applyTranslations() {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage][key]) {
+                    if (element.hasAttribute('placeholder')) {
+                        element.setAttribute('placeholder', translations[currentLanguage][key]);
+                    } else {
+                        element.textContent = translations[currentLanguage][key];
+                    }
+                }
+            });
+
+            // تحديث اتجاه الصفحة
+            document.body.setAttribute('dir', currentLanguage === 'ar' ? 'rtl' : 'ltr');
+        }
+
+        // تبديل اللغة
+        function toggleLanguage() {
+            currentLanguage = (currentLanguage === 'ar') ? 'en' : 'ar';
+            applyTranslations();
+            updateUI();
+        }
+
+        // تحديث واجهة المستخدم
+        function updateUI() {
+            // تحديث نص زر اللغة
+            const languageText = document.getElementById('language-text');
+            if (languageText) {
+                languageText.textContent = currentLanguage === 'ar' ? 'English' : 'العربية';
+            }
+        }
+
+        // وظائف أخرى
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+            
+            mobileMenu.classList.toggle('active');
+            
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenuIcon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                mobileMenuIcon.classList.replace('fa-times', 'fa-bars');
+            }
+        }
+
+        function changeSection(section) {
+            // يمكنك إضافة منطق تغيير الأقسام هنا
+            console.log('Changing to section:', section);
+        }
+
+        // تحميل الصور عند الحاجة (Lazy Loading)
+        function lazyLoadImages() {
+            const lazyImages = document.querySelectorAll('.lazy-image');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback للمتصفحات التي لا تدعم IntersectionObserver
+                lazyImages.forEach(img => {
+                    img.classList.add('loaded');
+                });
+            }
+        }
+
+        // استدعاء الوظائف عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTranslations();
+            updateUI();
+            lazyLoadImages();
+        });
+    </script>
+</body>
+</html>
